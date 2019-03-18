@@ -146,13 +146,13 @@ machinename = getMachineName()
 machinebrand = getMachineBrand()
 OEMname = getBrandOEM()
 
-INFO_Panel_Version = 'EsiPanel V2.0'
+ESI_Panel_Version = 'EsiPanel V3.0'
 print "[Esi-Panel] machinebrand: %s"  % (machinebrand)
 print "[Esi-Panel] machinename: %s"  % (machinename)
 print "[Esi-Panel] oem name: %s"  % (OEMname)
 print "[Esi-Panel] boxtype: %s"  % (boxversion)
 panel = open("/tmp/esipanel.ver", "w")
-panel.write(INFO_Panel_Version + '\n')
+panel.write(ESI_Panel_Version + '\n')
 panel.write("Machinebrand: %s " % (machinebrand)+ '\n')
 panel.write("Machinename: %s " % (machinename)+ '\n')
 panel.write("oem name: %s " % (OEMname)+ '\n')
@@ -316,7 +316,7 @@ class EsiPanel(Screen, InfoBarPiP, ProtectedScreen):
                                 "ok": self.ok,
                         }, 1)
                 
-                self["label1"] = Label(INFO_Panel_Version)
+                self["label1"] = Label(ESI_Panel_Version)
                 self["summary_description"] = StaticText("")
 
                 self.Mlist = []
@@ -326,7 +326,7 @@ class EsiPanel(Screen, InfoBarPiP, ProtectedScreen):
                 self.Mlist.append(MenuEntryItem((InfoEntryComponent ("ExtraAddonss" ), _("ExtraAddonss"), ("ExtraAddonss"))))
 
                 self.Mlist.append(MenuEntryItem((InfoEntryComponent ("SetPiconPath" ), _("SetPiconPath"), ("SetPiconPath"))))
-                self.Mlist.append(MenuEntryItem((InfoEntryComponent ("SoftwareManager" ), _("Software Manager"), ("software-manager"))))
+                #self.Mlist.append(MenuEntryItem((InfoEntryComponent ("SoftwareManager" ), _("Software Manager"), ("software-manager"))))
                 self.Mlist.append(MenuEntryItem((InfoEntryComponent('IPKInstaller'), _("IPK Installer"), 'IPKInstaller')))
                 self.Mlist.append(MenuEntryItem((InfoEntryComponent('CronManager'), _("CronManager"), 'CronManager')))  
                 self.Mlist.append(MenuEntryItem((InfoEntryComponent('SwapManager'), _("SwapManager"), 'SwapManager')))
@@ -408,7 +408,7 @@ class EsiPanel(Screen, InfoBarPiP, ProtectedScreen):
                         self["Mlist"].moveToIndex(0)
                         self["Mlist"].l.setList(self.oldmlist)
                         menu = 0
-                        self["label1"].setText(INFO_Panel_Version)
+                        self["label1"].setText(ESI_Panel_Version)
                 elif menu == 2:
                         self["Mlist"].moveToIndex(0)
                         self["Mlist"].l.setList(self.oldmlist1)
@@ -467,10 +467,10 @@ class EsiPanel(Screen, InfoBarPiP, ProtectedScreen):
                         self.session.open(ScriptRunner)
                 elif menu == "SoftcamPanel":
                         self.session.open(SoftcamPanel)
-                elif menu == "software-manager":
-                        self.Software_Manager()
-                elif menu == "software-update":
-                        self.session.open(SoftwarePanel)
+                #elif menu == "software-manager":
+                        #self.Software_Manager()
+                #elif menu == "software-update":
+                        #self.session.open(SoftwarePanel)
                 # elif menu == "IPKInstaller":
                         # from Plugins.Extensions.MediaScanner.plugin import main
                         # main(self.session)
