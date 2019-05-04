@@ -202,15 +202,47 @@ def Plugins(**kwargs):
 	return [
 
 	#// show EsiPanel in Main Menu
-	PluginDescriptor(name="Esi Panel", description="Esi Panel GUI 27/07/2015", where = PluginDescriptor.WHERE_MENU, fnc = Apanel),
+	# PluginDescriptor(name="EsiPanel", description="Esi Panel GUI 27/07/2015", where = PluginDescriptor.WHERE_MENU, fnc = Apanel),
 	#// autostart
 	PluginDescriptor(where = [PluginDescriptor.WHERE_SESSIONSTART,PluginDescriptor.WHERE_AUTOSTART],fnc = camstart),
 	#// show EsiPanel in EXTENSIONS Menu
-	PluginDescriptor(name="Esi Panel", description="Esi Panel GUI 27/07/2015", where = PluginDescriptor.WHERE_EXTENSIONSMENU, fnc = main) ]
+	PluginDescriptor(name="Esi Panel", description="Esi Panel GUI 03/05/2019", where = PluginDescriptor.WHERE_EXTENSIONSMENU, fnc = main) ]
 
 
 
 #############------- SKINS --------############################
+# <screen name="EsiPanel" position="0,0" size="1920,1080" title="Info Panel" backgroundColor="transparent" flags="wfNoBorder">
+  # <panel name="ch" />
+  # <panel name="pig" />
+  # <ePixmap name="" pixmap="DarknessFHD/e2/info.png" position="1516,603" size="518,300" transparent="0" alphatest="blend" />
+  # <widget name="Mlist" position="75,75" size="1100,700" font="Regular;40" zPosition="1" scrollbarMode="showOnDemand" scrollbarSliderBorderColor="#009b9b9b" scrollbarSliderForegroundColor="#0072c4ff" scrollbarSliderBorderWidth="0" scrollbarWidth="4" scrollbarSliderPicture="DarknessFHD/e1/scrollbar.png" transparent="1" itemHeight="70" />
+  # <widget name="label1" position="75,875" size="1100,60" font="Regular; 40" halign="left" backgroundColor="tb" transparent="1" foregroundColor="orange" />
+# </screen>
+
+# <screen name="CONFIG_SKIN" position="0,0" size="1920,1080" title="Info Panel" backgroundColor="transparent" flags="wfNoBorder">
+  # <panel name="ch" />
+  # <panel name="pig" />
+  # <ePixmap name="" pixmap="DarknessFHD/e2/info.png" position="1516,603" size="518,300" transparent="0" alphatest="blend" />
+  # <widget name="config" position="75,75" size="1100,700" font="Regular;40" zPosition="1" scrollbarMode="showOnDemand" scrollbarSliderBorderColor="#009b9b9b" scrollbarSliderForegroundColor="#0072c4ff" scrollbarSliderBorderWidth="0" scrollbarWidth="4" scrollbarSliderPicture="DarknessFHD/e1/scrollbar.png" transparent="1" itemHeight="70" />
+  # <widget name="labelExitsave" position="75,875" size="1100,60" font="Regular; 40" halign="left" backgroundColor="tb" transparent="1" foregroundColor="orange" />
+# </screen>
+
+# <screen name="INFO_SKIN" position="0,0" size="1920,1080" title="Info Panel" backgroundColor="transparent" flags="wfNoBorder">
+  # <panel name="ch" />
+  # <panel name="pig" />
+  # <ePixmap name="" pixmap="DarknessFHD/e2/info.png" position="1516,603" size="518,300" transparent="0" alphatest="blend" />
+  # <widget name="label1" position="75,875" size="1100,60" font="Regular; 40" halign="left" backgroundColor="tb" transparent="1" foregroundColor="orange" />
+  # <widget name="label2" position="75,75" size="1100,700" font="Regular; 40" halign="left" backgroundColor="tb" transparent="1" foregroundColor="orange" />
+# </screen>
+
+# <screen name="INFO_SKIN2" position="0,0" size="1920,1080" title="Info Panel" backgroundColor="transparent" flags="wfNoBorder">
+  # <panel name="ch" />
+  # <panel name="pig" />
+  # <ePixmap name="" pixmap="DarknessFHD/e2/info.png" position="1516,603" size="518,300" transparent="0" alphatest="blend" />
+  # <widget name="label1" position="75,75" size="1100,700" font="Regular; 40" halign="left" backgroundColor="tb" transparent="1" foregroundColor="orange" />
+# </screen>
+
+
 
 MENU_SKIN = """<screen position="center,center" size="500,370" title="Esi Panel" >
 	<widget source="global.CurrentTime" render="Label" position="0, 340" size="500,24" font="Regular;20" foregroundColor="#FFFFFF" halign="right" transparent="1" zPosition="5">
@@ -361,17 +393,29 @@ class EsiPanel(Screen, InfoBarPiP, ProtectedScreen):
                 self.selectionChanged()
 
         def up(self):
+                #lululla edit
+                self.selectionChanged()
+        
                 #self["Mlist"].up()
                 pass
 
         def down(self):
+                #lululla edit
+                self.selectionChanged()
+
                 #self["Mlist"].down()
                 pass
 
         def left(self):
+                #lululla edit
+                self.selectionChanged()
+
                 pass
 
         def right(self):
+                #lululla edit
+                self.selectionChanged()
+
                 pass
 
         def Red(self):
@@ -481,7 +525,9 @@ class EsiPanel(Screen, InfoBarPiP, ProtectedScreen):
                                 from Plugins.Extensions.MediaScanner.plugin import main
                                 main(self.session)
                 elif menu == "ExtraAddonss":
-                                from Plugins.Extensions.ExtraAddonss.plugin import main
+                                # from Plugins.Extensions.ExtraAddonss.plugin import main
+                                from Plugins.Extensions.ExtraAddonss.plugin import *
+                                
                                 main(self.session)
                 elif menu == "SetPiconPath":
                     # from Plugins.Extensions.PiconPathSet.plugin import SetPiconPath
